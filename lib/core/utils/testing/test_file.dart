@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 
 class AnimatedToggleDemo extends StatefulWidget {
@@ -206,6 +206,32 @@ class CustomToggleExample extends StatelessWidget {
           onSelectionChanged: (index) {
             print('Selected: ${index == 0 ? 'Register' : 'Login'}');
           },
+        ),
+      ),
+    );
+  }
+}*/
+
+import 'package:circles/core/config/themes/app_text_styles.dart';
+import 'package:circles/core/utils/testing/testing_row.dart';
+import 'package:circles/features/settings/switch_theme/presentation/view/switch_theme_button.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class TestFile extends StatelessWidget {
+  const TestFile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              SwitchThemeButton(),
+              Text("Hello wrold ", style: AppTextStyles.regular)
+            ],
+          ),
         ),
       ),
     );

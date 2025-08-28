@@ -1,7 +1,9 @@
 import 'package:circles/core/config/localization/app_localization.dart';
 import 'package:circles/core/config/themes/theme_data/theme_data_dark.dart';
 import 'package:circles/core/config/themes/theme_data/theme_data_light.dart';
+import 'package:circles/core/utils/testing/test_file.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view/auth_landing.dart';
+import 'package:circles/features/auth/new_password/presentation/views/new_password_page.dart';
 import 'package:circles/features/settings/switch_locale/presentation/view_model/cubit/switch_locale_cubit.dart';
 import 'package:circles/features/settings/switch_theme/presentation/view_model/cubit/theme_cubit.dart';
 import 'package:flutter/foundation.dart';
@@ -50,7 +52,7 @@ class Circles extends StatelessWidget {
           home: child,
         );
       },
-      child: const AuthLanding(),
+      child: const NewPasswordPage(email: "arefaee@gmail.com",),
     );
   }
 

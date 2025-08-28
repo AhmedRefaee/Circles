@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Where readers connect, share and grow",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "or": MessageLookupByLibrary.simpleMessage("OR"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "welcomeToCircles": MessageLookupByLibrary.simpleMessage(
       "Welcome to Circles!",
