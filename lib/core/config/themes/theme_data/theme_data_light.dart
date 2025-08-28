@@ -18,9 +18,7 @@ ThemeData getlightTheme() {
       brightness: Brightness.light,
     ),
 
-    extensions: [
-      CustomColors.light,
-    ],
+    extensions: [CustomColors.light],
 
     textTheme: ThemeData.light().textTheme.apply(
       fontFamily: AppFonts.firaSans,
@@ -33,37 +31,49 @@ ThemeData getlightTheme() {
         backgroundColor: AppColors.lCirclesPrimary,
         foregroundColor: AppColors.lCirclesBackground,
         disabledBackgroundColor: AppColors.lCirclesPrimary.withOpacity(0.5),
-        disabledForegroundColor: AppColors.lCirclesonBackground.withOpacity(0.5),
+        disabledForegroundColor: AppColors.lCirclesonBackground.withOpacity(
+          0.5,
+        ),
         minimumSize: Size(double.infinity, 48.h),
-        textStyle: AppTextStyles.eighteen,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
+        textStyle: AppTextStyles.regular,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.r),
+        ),
       ),
     ),
 
     inputDecorationTheme: InputDecorationTheme(
-      labelStyle: AppTextStyles.fourteen.copyWith(color: AppColors.lCirclesGray),
-      fillColor: AppColors.lCirclesBackground,
+      labelStyle: AppTextStyles.fourteen.copyWith(
+        color: AppColors.lCirclesPrimary.withAlpha(100),
+      ),
+      fillColor: AppColors.lCirclesGray.withAlpha(50),
       filled: true,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
+        borderRadius: BorderRadius.circular(25.r),
         borderSide: BorderSide(color: AppColors.lCirclesBackground),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
-          borderSide: BorderSide(color: AppColors.lCirclesBackground),
+        borderRadius: BorderRadius.circular(25.r),
+        borderSide: BorderSide(color: AppColors.lCirclesPrimary.withAlpha(50)),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
-        borderSide: BorderSide(color: AppColors.lCirclesBackground),
+        borderRadius: BorderRadius.circular(25.r),
+        
+        borderSide: BorderSide(color: AppColors.lCirclesPrimary),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
+        borderRadius: BorderRadius.circular(25.r),
         borderSide: BorderSide(color: AppColors.lCirclesError),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
+        borderRadius: BorderRadius.circular(25.r),
         borderSide: BorderSide(color: AppColors.lCirclesError),
       ),
+    ),
+
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: AppColors.lCirclesPrimary, 
+      strokeWidth: 3.w,
     ),
   );
 }

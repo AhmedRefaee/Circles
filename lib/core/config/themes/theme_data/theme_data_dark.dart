@@ -30,39 +30,48 @@ return ThemeData(
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.dCirclesPrimary,
-        foregroundColor: AppColors.dCirclesonBackground,
-        disabledBackgroundColor: AppColors.dCirclesPrimary.withOpacity(0.5),
-        disabledForegroundColor: AppColors.dCirclesonBackground.withOpacity(0.5),
+        backgroundColor: AppColors.dCirclesSecondary,
+        foregroundColor: AppColors.dCirclesPrimary,
+        disabledBackgroundColor: AppColors.dCirclesSecondary.withOpacity(0.5),
+        disabledForegroundColor: AppColors.dCirclesPrimary.withOpacity(0.5),
         minimumSize: Size(double.infinity, 48.h),
         textStyle: AppTextStyles.fourteen,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
       ),
     ),
 
-    inputDecorationTheme: InputDecorationTheme(
-      labelStyle: AppTextStyles.fourteen.copyWith(color: AppColors.dCirclesGray),
-      fillColor: AppColors.dCirclesBackground,
+   inputDecorationTheme: InputDecorationTheme(
+      labelStyle: AppTextStyles.fourteen.copyWith(
+        color: AppColors.dCirclesSecondary.withAlpha(150),
+      ),
+      fillColor: AppColors.dCirclesGray,
       filled: true,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
-        borderSide: BorderSide(color: AppColors.dCirclesBackground),
+        borderRadius: BorderRadius.circular(25.r),
+        borderSide: BorderSide(color: AppColors.dCirclesSecondary.withAlpha(100)),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
-          borderSide: BorderSide(color: AppColors.dCirclesBackground),
+        borderRadius: BorderRadius.circular(25.r),
+        borderSide: BorderSide(color: AppColors.dCirclesSecondary.withAlpha(100)),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
-        borderSide: BorderSide(color: AppColors.dCirclesBackground),
+        borderRadius: BorderRadius.circular(25.r),
+        
+        borderSide: BorderSide(color: AppColors.dCirclesSecondary),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
+        borderRadius: BorderRadius.circular(25.r),
         borderSide: BorderSide(color: AppColors.dCirclesError),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.r),
-        borderSide: BorderSide(color: AppColors.dCirclesError),
+        borderRadius: BorderRadius.circular(25.r),
+        borderSide: BorderSide(color: AppColors.lCirclesError),
       ),
     ),
-  );}
+
+
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: AppColors.dCirclesSecondary,
+      strokeWidth: 3.w,
+    ),
+   );}
