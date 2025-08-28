@@ -1,4 +1,7 @@
+import 'package:circles/core/config/themes/app_colors.dart';
+import 'package:circles/core/config/themes/app_text_styles.dart';
 import 'package:circles/core/config/themes/theme_extensions/theme_extenstions.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,82 +19,91 @@ class _RegisterOrLoginState extends State<RegisterOrLogin> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 50.h,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: context.colors.secondary,
-        borderRadius: BorderRadius.circular(25.r),
+        color: Theme.of(context).brightness == Brightness.light
+            ? AppColors.lCirclesSecondary
+            : AppColors.dCirclesSecondary,
+        borderRadius: BorderRadius.circular(50.r),
       ),
-      padding: EdgeInsets.all(4),
+      padding: EdgeInsets.all(1),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // Remove mainAxisAlignment: MainAxisAlignment.spaceAround
           // Register Container
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isRegisterSelected = true;
-              });
-            },
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              decoration: BoxDecoration(
-                color: isRegisterSelected ? Colors.brown : Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: isRegisterSelected
-                    ? [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                        ),
-                      ]
-                    : [],
-              ),
-              child: AnimatedDefaultTextStyle(
-                duration: Duration(milliseconds: 300),
-                style: TextStyle(
-                  color: isRegisterSelected ? Colors.white : Colors.brown,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
+          Expanded(
+            // Add Expanded here
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isRegisterSelected = true;
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.easeInOut,
+                  margin: EdgeInsets.only(
+                    right: 5.w,
+                  ), // Small gap between buttons
+                  padding: EdgeInsets.symmetric(vertical: 0.h),
+                  decoration: BoxDecoration(
+                    color: isRegisterSelected
+                        ? AppColors.lCirclesPrimary
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(50.r),
+                  ),
+                  child: Center(
+                    // Center the text
+                    child: AnimatedDefaultTextStyle(
+                      duration: Duration(milliseconds: 400),
+                      style: AppTextStyles.headline3.copyWith(
+                        color: isRegisterSelected ? Colors.white : Colors.black,
+                      ),
+                      child: Text('Register'),
+                    ),
+                  ),
                 ),
-                child: Text('Register'),
               ),
             ),
           ),
+
           // Login Container
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isRegisterSelected = false;
-              });
-            },
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-             // padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              decoration: BoxDecoration(
-                color: !isRegisterSelected ? Colors.brown : Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: !isRegisterSelected
-                    ? [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                        ),
-                      ]
-                    : [],
-              ),
-              child: AnimatedDefaultTextStyle(
-                duration: Duration(milliseconds: 300),
-                style: TextStyle(
-                  color: !isRegisterSelected ? Colors.white : Colors.brown,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
+          Expanded(
+            // Add Expanded here too
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isRegisterSelected = false;
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.easeInOut,
+                  margin: EdgeInsets.only(left: 5.w),
+                  padding: EdgeInsets.symmetric(vertical: 0.h),
+                  decoration: BoxDecoration(
+                    color: !isRegisterSelected
+                        ? AppColors.lCirclesPrimary
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(50.r),
+                  ),
+                  child: Center(
+                    child: AnimatedDefaultTextStyle(
+                      duration: Duration(milliseconds: 400),
+                      style: AppTextStyles.headline3.copyWith(
+                        color: !isRegisterSelected
+                            ? Colors.white
+                            : Colors.black, // Fix: was showing 'Register' text
+                      ),
+                      child: Text('Login'), // Fix: This should say 'Login'
+                    ),
+                  ),
                 ),
-                child: Text('Login'),
               ),
             ),
           ),
@@ -101,6 +113,11 @@ class _RegisterOrLoginState extends State<RegisterOrLogin> {
   }
 }
 
+
+
+
+
+/*
 // Alternative approach using a custom widget for reusability
 class RegisterOrLoginButton extends StatefulWidget {
   final String firstOption;
@@ -115,7 +132,7 @@ class RegisterOrLoginButton extends StatefulWidget {
     required this.firstOption,
     required this.secondOption,
     required this.onSelectionChanged,
-    this.selectedColor = Colors.brown,
+    this.selectedColor = AppColors.lCirclesPrimary,
     this.unselectedColor = Colors.brown,
     this.backgroundColor = Colors.grey,
   });
@@ -185,3 +202,4 @@ class _RegisterOrLoginButtonState extends State<RegisterOrLoginButton> {
     );
   }
 }
+*/
