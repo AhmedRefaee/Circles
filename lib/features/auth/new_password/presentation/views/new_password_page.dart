@@ -28,35 +28,25 @@ class NewPasswordPage extends StatelessWidget {
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0.w),
-            child: Column(
+          child: 
+             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SwitchThemeButton(),
-                    IconButton(onPressed: () {}, icon: Icon(AppIcons.globe)),
-                  ],
-                ),
-
                 BackArrowButton(),
                 SizedBox(height: 20.h),
                 Padding(
                   padding: EdgeInsets.only(left: 15.w),
-                  child: Flexible(
-                    child: Text(
-                      "Set a New Password",
-                      style: AppTextStyles.headline1,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
+
+                  child: Text(
+                    "Set a New Password",
+                    style: AppTextStyles.headline2,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 20.w),
-                  child: Flexible(
+                  padding: EdgeInsets.only(left: 15.w),
+                
                     child: Text(
                       "Enter your new password to reset your account",
                       style: AppTextStyles.fourteen.copyWith(
@@ -67,7 +57,7 @@ class NewPasswordPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                ),
+                
                 SizedBox(height: 20.h),
 
                 Center(
@@ -76,12 +66,12 @@ class NewPasswordPage extends StatelessWidget {
                     email: email,
                   ),
                 ),
-                SizedBox(height: 20.h),
+                //  SizedBox(height: 20.h),
               ],
             ),
           ),
         ),
-      ),
+      
     );
   }
 }
