@@ -1,114 +1,100 @@
 import 'package:circles/core/config/themes/app_colors.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
 import 'package:circles/core/config/themes/theme_extensions/theme_extenstions.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:circles/features/auth/auth_landing/presentation/view_model/auth/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RegisterOrLogin extends StatefulWidget {
+class RegisterOrLogin extends StatelessWidget {
   const RegisterOrLogin({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _RegisterOrLoginState createState() => _RegisterOrLoginState();
-}
-
-class _RegisterOrLoginState extends State<RegisterOrLogin> {
-  bool isRegisterSelected = true; // Default first container selected
-
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.h,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Theme.of(context).brightness == Brightness.light
-            ? AppColors.lCirclesSecondary
-            : AppColors.dCirclesSecondary,
-        borderRadius: BorderRadius.circular(50.r),
-      ),
-      padding: EdgeInsets.all(1),
-      child: Row(
-        children: [
-          // Remove mainAxisAlignment: MainAxisAlignment.spaceAround
-          // Register Container
-          Expanded(
-            // Add Expanded here
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isRegisterSelected = true;
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 400),
-                  curve: Curves.easeInOut,
-                  margin: EdgeInsets.only(
-                    right: 5.w,
-                  ), // Small gap between buttons
-                  padding: EdgeInsets.symmetric(vertical: 0.h),
-                  decoration: BoxDecoration(
-                    color: isRegisterSelected
-                        ? AppColors.lCirclesPrimary
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(50.r),
-                  ),
-                  child: Center(
-                    // Center the text
-                    child: AnimatedDefaultTextStyle(
+    return BlocBuilder<AuthCubit, AuthState>(
+      builder: (context, state) {
+        final authCubit = context.read<AuthCubit>();
+        final isRegisterSelected = authCubit.isRegisterSelected;
+        
+        return Container(
+          height: 50.h,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Theme.of(context).brightness == Brightness.light
+                ? AppColors.lCirclesSecondary
+                : AppColors.dCirclesSecondary,
+            borderRadius: BorderRadius.circular(50.r),
+          ),
+          padding: EdgeInsets.all(1),
+          child: Row(
+            children: [
+              // Register Container
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => authCubit.switchToRegister(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: AnimatedContainer(
                       duration: Duration(milliseconds: 400),
-                      style: AppTextStyles.headline3.copyWith(
-                        color: isRegisterSelected ? Colors.white : Colors.black,
+                      curve: Curves.easeInOut,
+                      margin: EdgeInsets.only(right: 5.w),
+                      padding: EdgeInsets.symmetric(vertical: 0.h),
+                      decoration: BoxDecoration(
+                        color: isRegisterSelected
+                            ? AppColors.lCirclesPrimary
+                            : Colors.transparent,
+                        borderRadius: BorderRadius.circular(50.r),
                       ),
-                      child: Text('Register'),
+                      child: Center(
+                        child: AnimatedDefaultTextStyle(
+                          duration: Duration(milliseconds: 400),
+                          style: AppTextStyles.headline3.copyWith(
+                            color: isRegisterSelected ? Colors.white : Colors.black,
+                          ),
+                          child: Text('Register'),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
 
-          // Login Container
-          Expanded(
-            // Add Expanded here too
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isRegisterSelected = false;
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 400),
-                  curve: Curves.easeInOut,
-                  margin: EdgeInsets.only(left: 5.w),
-                  padding: EdgeInsets.symmetric(vertical: 0.h),
-                  decoration: BoxDecoration(
-                    color: !isRegisterSelected
-                        ? AppColors.lCirclesPrimary
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(50.r),
-                  ),
-                  child: Center(
-                    child: AnimatedDefaultTextStyle(
+              // Login Container
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => authCubit.switchToLogin(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: AnimatedContainer(
                       duration: Duration(milliseconds: 400),
-                      style: AppTextStyles.headline3.copyWith(
+                      curve: Curves.easeInOut,
+                      margin: EdgeInsets.only(left: 5.w),
+                      padding: EdgeInsets.symmetric(vertical: 0.h),
+                      decoration: BoxDecoration(
                         color: !isRegisterSelected
-                            ? Colors.white
-                            : Colors.black, // Fix: was showing 'Register' text
+                            ? AppColors.lCirclesPrimary
+                            : Colors.transparent,
+                        borderRadius: BorderRadius.circular(50.r),
                       ),
-                      child: Text('Login'), // Fix: This should say 'Login'
+                      child: Center(
+                        child: AnimatedDefaultTextStyle(
+                          duration: Duration(milliseconds: 400),
+                          style: AppTextStyles.headline3.copyWith(
+                            color: !isRegisterSelected
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                          child: Text('Login'),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
