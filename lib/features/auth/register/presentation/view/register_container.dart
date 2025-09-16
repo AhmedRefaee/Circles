@@ -1,12 +1,14 @@
 import 'package:circles/core/config/themes/app_colors.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view_model/auth/auth_cubit.dart';
+import 'package:circles/features/auth/email_verification/presentation/view/email_verification_screen.dart';
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterContainer extends StatefulWidget {
-  const RegisterContainer({Key? key}) : super(key: key);
+  const RegisterContainer({super.key});
 
   @override
   _RegisterContainerState createState() => _RegisterContainerState();
@@ -20,7 +22,6 @@ class _RegisterContainerState extends State<RegisterContainer> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +143,16 @@ class _RegisterContainerState extends State<RegisterContainer> {
 
                 // Register Button
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EmailVerificationScreen(
+                          email: _emailController.text,
+                        ),
+                      ),
+                    );
+                  },
                   child: Text("Register", style: AppTextStyles.regular),
                 ),
               ],

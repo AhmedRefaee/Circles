@@ -1,6 +1,7 @@
 import 'package:circles/core/config/themes/app_colors.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view_model/auth/auth_cubit.dart';
+import 'package:circles/features/auth/forgot_password/presentation/view/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,6 @@ class _LoginContainerState extends State<LoginContainer> {
   final TextEditingController _emailController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +145,12 @@ class _LoginContainerState extends State<LoginContainer> {
                     Flexible(
                       child: TextButton(
                         onPressed: () {
-                          // Handle forgot password
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => (ForgotPasswordPage()),
+                            ),
+                          );
                         },
                         child: FittedBox(
                           fit: BoxFit.scaleDown,

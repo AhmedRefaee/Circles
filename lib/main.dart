@@ -3,6 +3,8 @@ import 'package:circles/core/config/themes/theme_data/theme_data_dark.dart';
 import 'package:circles/core/config/themes/theme_data/theme_data_light.dart';
 import 'package:circles/core/utils/testing/test_file.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view/auth_landing.dart';
+import 'package:circles/features/auth/email_verification/presentation/view/email_verification_screen.dart';
+import 'package:circles/features/auth/forgot_password/presentation/view/forgot_password_page.dart';
 import 'package:circles/features/auth/new_password/presentation/views/new_password_page.dart';
 import 'package:circles/features/settings/switch_locale/presentation/view_model/cubit/switch_locale_cubit.dart';
 import 'package:circles/features/settings/switch_theme/presentation/view_model/cubit/theme_cubit.dart';
@@ -12,7 +14,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +28,11 @@ Future<void> main() async {
 class Circles extends StatelessWidget {
   const Circles({super.key});
 
-  Widget _buildMaterialApp(BuildContext context, ThemeMode themeMode, Locale locale) {
+  Widget _buildMaterialApp(
+    BuildContext context,
+    ThemeMode themeMode,
+    Locale locale,
+  ) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -36,7 +41,7 @@ class Circles extends StatelessWidget {
           ////disable debug banner
           debugShowCheckedModeBanner: false,
 
-          ///localization 
+          ///localization
           locale: locale,
           localizationsDelegates: AppLocalization.localizationsDelegates,
           supportedLocales: AppLocalization.supportedLocalesList,
@@ -46,13 +51,13 @@ class Circles extends StatelessWidget {
           darkTheme: getdarkTheme(),
           themeAnimationCurve: Curves.easeInOut,
           themeAnimationDuration: const Duration(milliseconds: 500),
-          themeMode:themeMode,
+          themeMode: themeMode,
 
           ///home
           home: child,
         );
       },
-      child: const NewPasswordPage(email: "arefaee@gmail.com",),
+      child: const AuthLanding(),
     );
   }
 

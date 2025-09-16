@@ -9,8 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EmailVerificationScreen extends StatelessWidget {
-  const EmailVerificationScreen({super.key});
-
+  const EmailVerificationScreen({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -51,7 +51,7 @@ class EmailVerificationScreen extends StatelessWidget {
                                   'Please enter the 4 digit code that has been sent to  ',
                             ),
                             TextSpan(
-                              text: "arefaee@gmail.com",
+                              text: email,
                               style: Theme.of(context).textTheme.bodyMedium
                                   ?.copyWith(
                                     fontWeight: FontWeight
