@@ -3,7 +3,6 @@ import 'package:circles/features/auth/email_verification/presentation/view_model
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class VerifyButton extends StatelessWidget {
   const VerifyButton({super.key});
 
@@ -13,7 +12,8 @@ class VerifyButton extends StatelessWidget {
 
     return BlocBuilder<EmailVerificationCubit, EmailVerificationState>(
       buildWhen: (previous, current) {
-        if (previous is EmailVerificationValidation && current is EmailVerificationValidation) {
+        if (previous is EmailVerificationValidation &&
+            current is EmailVerificationValidation) {
           return previous.isFormValid != current.isFormValid;
         }
         return current is EmailVerificationValidation;
@@ -21,10 +21,7 @@ class VerifyButton extends StatelessWidget {
       builder: (context, state) {
         return ElevatedButton(
           onPressed: _isFormValid(state) ? cubit.verifyCode : null,
-          child: Text(
-            'Verify',
-            style: AppTextStyles.regular,
-          ),
+          child: Text('Verify Code', style: AppTextStyles.regular),
         );
       },
     );

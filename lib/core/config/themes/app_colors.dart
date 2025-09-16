@@ -26,6 +26,7 @@ static const Color dCirclesGray = Color(0xFF555555);
 
 static const Color dCirclesPrimary= Color(0xFF402905);
 static const Color dCirclesSecondary = Color(0xFFEAD0A8); 
+static const Color dCircleaccent = Color.fromARGB(255, 243, 209, 122);
 static const Color dCirclesSuccess = Color(0xFF2AA952); 
 static const Color dCirclesError = Color(0xFFDB3022);
 
