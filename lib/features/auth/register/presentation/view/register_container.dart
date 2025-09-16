@@ -1,199 +1,64 @@
-import 'package:circles/core/config/themes/app_colors.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/features/auth/auth_landing/presentation/view_model/auth/auth_cubit.dart';
-import 'package:circles/features/auth/email_verification/presentation/view/email_verification_screen.dart';
-import 'package:circles/generated/l10n.dart';
+import 'package:circles/core/utils/elements/themed_expansion_tile.dart';
+import 'package:circles/features/auth/register/presentation/view/widgets/rather_login_button.dart';
+import 'package:circles/features/auth/register/presentation/view/widgets/register_button.dart';
+import 'package:circles/features/auth/register/presentation/view/widgets/register_form.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterContainer extends StatefulWidget {
   const RegisterContainer({super.key});
 
   @override
-  _RegisterContainerState createState() => _RegisterContainerState();
+  State<RegisterContainer> createState() => _RegisterContainerState();
 }
 
 class _RegisterContainerState extends State<RegisterContainer> {
-  final ExpansibleController _expansionController = ExpansibleController();
-  bool _isObscured = true;
-  bool _isLoading = false;
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Column(
-        children: [
-          ///// Register Form
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? AppColors.lCirclesGray
-                    : AppColors.lCirclesGray,
-              ),
-
-              borderRadius: BorderRadius.circular(25.r),
-              // color: Colors.grey[50],
+    return Column(
+      children: [
+        ThemedExpansionTile(
+          title: "Register with Email",
+          children: [
+            // Register Form
+            RegisterForm(
+              emailController: _emailController,
+              usernameController: _usernameController,
+              passwordController: _passwordController,
             ),
-            child: ExpansionTile(
-              controller: _expansionController,
-              title: Text("Sign up with Email", style: AppTextStyles.regular),
-              //  tilePadding: const EdgeInsets.all(20),
-              childrenPadding: EdgeInsets.fromLTRB(20.w, 0.h, 20.w, 20.h),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.r),
-              ),
-              collapsedShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              backgroundColor: Theme.of(context).brightness == Brightness.light
-                  ? AppColors.lCirclesGray.withAlpha(50)
-                  : AppColors.dCirclesGray.withAlpha(100),
-              collapsedBackgroundColor:
-                  Theme.of(context).brightness == Brightness.light
-                  ? AppColors.lCirclesGray.withAlpha(50)
-                  : AppColors.dCirclesGray.withAlpha(100),
-              iconColor: Theme.of(context).brightness == Brightness.light
-                  ? AppColors.lCirclesPrimary
-                  : AppColors.dCirclesSecondary,
-              collapsedIconColor:
-                  Theme.of(context).brightness == Brightness.light
-                  ? AppColors.lCirclesPrimary
-                  : AppColors.dCirclesSecondary,
-              children: [
-                Divider(
-                  height: 1,
-                  color: Theme.of(context).brightness == Brightness.light
-                      ? AppColors.lCirclesPrimary
-                      : AppColors.dCirclesSecondary,
-                ),
-                SizedBox(height: 20.h),
-
-                // Email Field
-                TextFormField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  onTapOutside: (event) {
-                    FocusScope.of(context).unfocus();
-                  },
-                  //  controller: _emailController,
-                  // keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(labelText: "Email Address"),
-                ),
-
-                SizedBox(height: 15.h),
-
-                // Username Field
-                TextFormField(
-                  controller: _usernameController,
-                  onTapOutside: (event) {
-                    FocusScope.of(context).unfocus();
-                  },
-                  decoration: const InputDecoration(labelText: "Username"),
-                ),
-
-                SizedBox(height: 15.h),
-
-                // Password Field
-                TextFormField(
-                  controller: _passwordController,
-                  onTapOutside: (event) {
-                    FocusScope.of(context).unfocus();
-                  },
-                  obscureText: _isObscured,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _isObscured ? Icons.visibility_off : Icons.visibility,
-                        size: 20.sp,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _isObscured = !_isObscured;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-
-                SizedBox(height: 20.h),
-
-                // Terms text
-                Text(
-                  "By continuing, you accept our terms of use and acknowledge our privacy policy",
-                  style: AppTextStyles.eleven,
-
-                  /* TextStyle(
-                    fontSize: 12.sp,
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? AppColors.lCirclesPrimary
-                        : AppColors.dCirclesSecondary,
-                    fontFamily: 'Poppins',
-                  ), */
-                  textAlign: TextAlign.center,
-                ),
-
-                SizedBox(height: 20.h),
-
-                // Register Button
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EmailVerificationScreen(
-                          email: _emailController.text,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Text("Register", style: AppTextStyles.regular),
-                ),
-              ],
+            SizedBox(height: 20.h),
+            // Terms text
+            Text(
+              "By continuing, you accept our terms of use and acknowledge our privacy policy",
+              style: AppTextStyles.eleven,
+              textAlign: TextAlign.center,
             ),
-          ),
-          SizedBox(height: 20.h),
-          // Already have an account text
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Already have an account? ", style: AppTextStyles.fourteen),
-              BlocBuilder<AuthCubit, AuthState>(
-                builder: (context, state) {
-                  final authCubit = context.read<AuthCubit>();
-                  return GestureDetector(
-                    onTap: () => authCubit.switchToLogin(),
-                    child: Text(
-                      "Log in",
-                      style: AppTextStyles.fourteen.copyWith(
-                        color: Theme.of(context).brightness == Brightness.light
-                            ? AppColors.lCircleaccent
-                            : AppColors.dCircleaccent,
-
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
+            SizedBox(height: 20.h),
+            // Register Button
+            RegisterButton(
+              emailController: _emailController,
+              usernameController: _usernameController,
+              passwordController: _passwordController,
+            ),
+          ],
+        ),
+        SizedBox(height: 20.h),
+        const RatherLoginButton(), // "Already have an account?"
+      ],
     );
   }
 
   @override
   void dispose() {
     _emailController.dispose();
-    _usernameController.dispose();
     _passwordController.dispose();
+    _usernameController.dispose();
     super.dispose();
   }
 }
