@@ -1,11 +1,13 @@
+import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
 import 'package:circles/core/utils/elements/back_arrow_button.dart';
-import 'package:circles/features/auth/email_verification/presentation/view/email_verification_screen.dart';
+import 'package:circles/features/auth/forgot_password/presentation/view/widgets/request_code_button.dart';
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
-  ForgotPasswordPage({super.key});
+  const ForgotPasswordPage({super.key});
 
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
@@ -18,78 +20,59 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBar(leading: BackArrowButton()),
       body: SafeArea(
-        child: SizedBox(
-          width: double.infinity,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSpacing.screenHorizontal,
+            vertical: AppSpacing.screenVertical,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20.h),
-                BackArrowButton(),
-                SizedBox(height: 10.h),
-                Padding(
-                  padding: EdgeInsets.only(left: 15.w),
+                /// Title Text
+                Text(
+                  S.of(context).forgotPassword,
+                  style: AppTextStyles.headline2,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
 
-                  child: Text(
-                    "Forgot Password",
-                    style: AppTextStyles.headline2,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
+                //email instruction text
+                Text(
+                  S.of(context).passwordResetInstruction,
+                  style: AppTextStyles.fourteen.copyWith(
+                    fontWeight: FontWeight.w400,
                   ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  //    textAlign: TextAlign.left,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 15.w, right: 10.w),
-
-                  child: Text(
-                    "Please, enter your email address. You will receive a link to create a new password via email.",
-                    style: AppTextStyles.fourteen.copyWith(
-                      fontWeight: FontWeight.w400,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-
-                SizedBox(height: 20.h),
-                Padding(
-                  padding: EdgeInsets.only(left: 15.w),
-                  child: Text("Email Address", style: AppTextStyles.regular),
-                ),
-                SizedBox(height: 10.h),
-
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                SizedBox(height: AppSpacing.verticalLarge),
+                // Email Label
+                Text(S.of(context).emailAddress, style: AppTextStyles.regular),
+                SizedBox(height: AppSpacing.verticalSmall),
+                // Email Field
+                SizedBox(
+                  height: 50.h,
                   child: TextFormField(
-                    controller: _emailController,
+                    controller: _emailController, // Use the passed controller
+                    keyboardType: TextInputType.emailAddress,
                     onTapOutside: (event) {
                       FocusScope.of(context).unfocus();
                     },
                     decoration: InputDecoration(
-                      hintText: 'Enter your email address',
+                      hintText: S.of(context).enterEmailAddressPlaceholder,
                     ),
-                    keyboardType: TextInputType.emailAddress,
                   ),
                 ),
-                SizedBox(height: 50.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 50.w),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmailVerificationScreen(
-                            email: _emailController.text,
-                          ),
-                        ),
-                      );
-                    },
-                    child: Text("Send Request Code"),
-                  ),
-                ),
+                SizedBox(height: AppSpacing.verticalFifty),
+
+                // Send Request Code Button
+                RequestCodeButton(emailController: _emailController),
               ],
             ),
           ),
