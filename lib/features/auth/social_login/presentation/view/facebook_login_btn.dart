@@ -1,4 +1,7 @@
+import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
+import 'package:circles/core/consts/app_assets.dart';
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Colors;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +12,7 @@ class FacebookLoginBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return Container(
+    return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey, width: 0.5),
         borderRadius: BorderRadius.circular(50.r),
@@ -19,10 +22,14 @@ class FacebookLoginBtn extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset("assets/images/icons/facebook_icon.svg"),
-          SizedBox(width: 10.w),
-          Text("Continue with Facebook", style: AppTextStyles.regular),
+          SvgPicture.asset(AppAssets.facebookIcon),
+          SizedBox(width: AppSpacing.horizontalSmall),
+          Text(
+            S.of(context).continueWithFacebook,
+            style: AppTextStyles.regular,
+          ),
         ],
       ),
-    ); }
+    );
+  }
 }
