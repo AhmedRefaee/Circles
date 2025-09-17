@@ -1,3 +1,5 @@
+import 'package:circles/core/config/themes/app_spacing.dart';
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,11 +36,11 @@ class _RegisterFormState extends State<RegisterForm> {
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();
             },
-            decoration: const InputDecoration(labelText: "Email Address"),
+            decoration: InputDecoration(labelText: S.of(context).emailAddress),
           ),
         ),
 
-        SizedBox(height: 15.h),
+        SizedBox(height: AppSpacing.verticalMedium),
 
         // Username Field
         SizedBox(
@@ -48,11 +50,11 @@ class _RegisterFormState extends State<RegisterForm> {
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();
             },
-            decoration: const InputDecoration(labelText: "Username"),
+            decoration: InputDecoration(labelText: S.of(context).username),
           ),
         ),
 
-        SizedBox(height: 15.h),
+        SizedBox(height: AppSpacing.verticalMedium),
 
         // Password Field
         SizedBox(
@@ -64,7 +66,7 @@ class _RegisterFormState extends State<RegisterForm> {
             },
             obscureText: _isObscured,
             decoration: InputDecoration(
-              labelText: "Password",
+              labelText: S.of(context).password,
               suffixIcon: IconButton(
                 icon: Icon(
                   _isObscured ? Icons.visibility_off : Icons.visibility,

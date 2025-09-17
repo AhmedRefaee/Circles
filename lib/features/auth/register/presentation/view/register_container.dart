@@ -1,11 +1,11 @@
+import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
 import 'package:circles/core/utils/elements/themed_expansion_tile.dart';
 import 'package:circles/features/auth/register/presentation/view/widgets/rather_login_button.dart';
 import 'package:circles/features/auth/register/presentation/view/widgets/register_button.dart';
 import 'package:circles/features/auth/register/presentation/view/widgets/register_form.dart';
-
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterContainer extends StatefulWidget {
   const RegisterContainer({super.key});
@@ -24,7 +24,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
     return Column(
       children: [
         ThemedExpansionTile(
-          title: "Register with Email",
+          title: S.of(context).registerWithEmail,
           children: [
             // Register Form
             RegisterForm(
@@ -32,14 +32,14 @@ class _RegisterContainerState extends State<RegisterContainer> {
               usernameController: _usernameController,
               passwordController: _passwordController,
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: AppSpacing.verticalLarge),
             // Terms text
             Text(
-              "By continuing, you accept our terms of use and acknowledge our privacy policy",
+              S.of(context).termsText,
               style: AppTextStyles.eleven,
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: AppSpacing.verticalLarge),
             // Register Button
             RegisterButton(
               emailController: _emailController,
@@ -48,7 +48,7 @@ class _RegisterContainerState extends State<RegisterContainer> {
             ),
           ],
         ),
-        SizedBox(height: 20.h),
+        SizedBox(height: AppSpacing.verticalLarge),
         const RatherLoginButton(), // "Already have an account?"
       ],
     );
