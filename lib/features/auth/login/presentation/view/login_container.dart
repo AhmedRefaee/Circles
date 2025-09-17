@@ -1,9 +1,11 @@
+import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/utils/elements/themed_expansion_tile.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/forgot_password_button.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/login_button.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/login_form.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/remmeber_me_check.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/rather_register_button.dart';
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,27 +25,27 @@ class _LoginContainerState extends State<LoginContainer> {
     return Column(
       children: [
         ThemedExpansionTile(
-          title: "Login with Email",
+          title: S.of(context).loginWithEmail,
           children: [
             LoginForm(
               emailController: _emailController,
               passwordController: _passwordController,
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: AppSpacing.verticalLarge),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [RememberMeCheck(), ForgotPasswordButton()],
             ),
-            SizedBox(height: 20.h),
-            // Login Button
+            SizedBox(height: AppSpacing.verticalLarge),
+
             LoginButton(
               emailController: _emailController,
               passwordController: _passwordController,
             ),
           ],
         ),
-        SizedBox(height: 20.h),
-        const RatherRegisterButton(),
+        SizedBox(height: AppSpacing.verticalLarge),
+        RatherRegisterButton(),
       ],
     );
   }

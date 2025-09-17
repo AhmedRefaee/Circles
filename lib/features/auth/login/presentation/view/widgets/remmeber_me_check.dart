@@ -1,4 +1,5 @@
 import 'package:circles/core/config/themes/app_text_styles.dart';
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class RememberMeCheck extends StatelessWidget {
@@ -23,7 +24,12 @@ class RememberMeCheck extends StatelessWidget {
             Flexible(
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text("Remember me", style: AppTextStyles.regular),
+                child: Text(
+                  S.of(context).rememberMe,
+                  style: AppTextStyles.fourteen.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
               ),
             ),
           ],

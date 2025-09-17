@@ -1,3 +1,4 @@
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
@@ -19,6 +20,9 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: _handleSignIn, child: const Text("Login"));
+    return ElevatedButton(
+      onPressed: _handleSignIn,
+      child: Text(S.of(context).login),
+    );
   }
 }
