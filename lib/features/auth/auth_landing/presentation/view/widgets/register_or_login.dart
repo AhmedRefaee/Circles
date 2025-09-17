@@ -1,7 +1,7 @@
 import 'package:circles/core/config/themes/app_colors.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/core/config/themes/theme_extensions/theme_extenstions.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view_model/auth/auth_cubit.dart';
+import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +15,7 @@ class RegisterOrLogin extends StatelessWidget {
       builder: (context, state) {
         final authCubit = context.read<AuthCubit>();
         final isRegisterSelected = authCubit.isRegisterSelected;
-        
+
         return Container(
           height: 50.h,
           width: double.infinity,
@@ -49,9 +49,11 @@ class RegisterOrLogin extends StatelessWidget {
                         child: AnimatedDefaultTextStyle(
                           duration: Duration(milliseconds: 400),
                           style: AppTextStyles.headline3.copyWith(
-                            color: isRegisterSelected ? Colors.white : Colors.black,
+                            color: isRegisterSelected
+                                ? Colors.white
+                                : Colors.black,
                           ),
-                          child: Text('Register'),
+                          child: Text(S.of(context).register),
                         ),
                       ),
                     ),
@@ -84,7 +86,7 @@ class RegisterOrLogin extends StatelessWidget {
                                 ? Colors.white
                                 : Colors.black,
                           ),
-                          child: Text('Login'),
+                          child: Text(S.of(context).login),
                         ),
                       ),
                     ),
