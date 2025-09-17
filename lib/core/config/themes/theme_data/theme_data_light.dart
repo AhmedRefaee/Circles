@@ -26,6 +26,8 @@ ThemeData getlightTheme() {
       displayColor: AppColors.lCirclesPrimary,
     ),
 
+    appBarTheme: AppBarTheme(backgroundColor: AppColors.lCirclesBackground),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.lCirclesPrimary,

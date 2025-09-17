@@ -26,6 +26,8 @@ ThemeData getdarkTheme() {
       displayColor: AppColors.dCirclesonBackground,
     ),
 
+    appBarTheme: AppBarTheme(backgroundColor: AppColors.dCirclesBackground),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.dCirclesSecondary,
