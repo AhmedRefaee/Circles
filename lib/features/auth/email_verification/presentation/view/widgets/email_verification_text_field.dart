@@ -86,57 +86,54 @@ class _EmailVerificationTextFieldState
   Widget build(BuildContext context) {
     final defaultTheme = _buildPinTheme(context);
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
-      child: Form(
-        key: _formKey,
-        child: Directionality(
-          textDirection: TextDirection.ltr,
-          child: Pinput(
-            length: widget.codeLength,
-            controller: _controller,
-            focusNode: _focusNode,
-            defaultPinTheme: defaultTheme,
-            hapticFeedbackType: HapticFeedbackType.lightImpact,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            pinContentAlignment: Alignment.center,
-            keyboardType: TextInputType.number,
-            textInputAction: TextInputAction.done,
-            onCompleted: _handleSubmission,
-            onChanged: _onChanged,
+    return Form(
+      key: _formKey,
+      child: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Pinput(
+          length: widget.codeLength,
+          controller: _controller,
+          focusNode: _focusNode,
+          defaultPinTheme: defaultTheme,
+          hapticFeedbackType: HapticFeedbackType.lightImpact,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          pinContentAlignment: Alignment.center,
+          keyboardType: TextInputType.number,
+          textInputAction: TextInputAction.done,
+          onCompleted: _handleSubmission,
+          onChanged: _onChanged,
 
-            //// ON FOCUS
-            focusedPinTheme: defaultTheme.copyWith(
-              decoration: defaultTheme.decoration!.copyWith(
-                border: Border.all(
-                  color: Theme.of(context).brightness == Brightness.light
-                      ? AppColors.lCirclesPrimary
-                      : AppColors.dCirclesonBackground,
-                  width: 2.w,
-                ),
-              ),
-            ),
-
-            //// ON SUBMITTED
-            submittedPinTheme: defaultTheme.copyWith(
-              decoration: defaultTheme.decoration!.copyWith(
+          //// ON FOCUS
+          focusedPinTheme: defaultTheme.copyWith(
+            decoration: defaultTheme.decoration!.copyWith(
+              border: Border.all(
                 color: Theme.of(context).brightness == Brightness.light
-                    ? AppColors.lCirclesSecondary.withAlpha(150)
-                    : AppColors.dCirclesSecondary.withAlpha(150),
-                border: Border.all(
-                  color: Theme.of(context).brightness == Brightness.light
-                      ? AppColors.lCirclesPrimary
-                      : AppColors.dCirclesSecondary,
-                  width: 1.w,
-                ),
+                    ? AppColors.lCirclesPrimary
+                    : AppColors.dCirclesonBackground,
+                width: 2.w,
               ),
             ),
+          ),
 
-            //// ON ERROR
-            errorPinTheme: defaultTheme.copyWith(
-              decoration: defaultTheme.decoration!.copyWith(
-                border: Border.all(color: context.colors.error, width: 2.w),
+          //// ON SUBMITTED
+          submittedPinTheme: defaultTheme.copyWith(
+            decoration: defaultTheme.decoration!.copyWith(
+              color: Theme.of(context).brightness == Brightness.light
+                  ? AppColors.lCirclesSecondary.withAlpha(150)
+                  : AppColors.dCirclesSecondary.withAlpha(150),
+              border: Border.all(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? AppColors.lCirclesPrimary
+                    : AppColors.dCirclesSecondary,
+                width: 1.w,
               ),
+            ),
+          ),
+
+          //// ON ERROR
+          errorPinTheme: defaultTheme.copyWith(
+            decoration: defaultTheme.decoration!.copyWith(
+              border: Border.all(color: context.colors.error, width: 2.w),
             ),
           ),
         ),
