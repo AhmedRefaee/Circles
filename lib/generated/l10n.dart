@@ -88,6 +88,196 @@ class S {
   String get or {
     return Intl.message('OR', name: 'or', desc: '', args: []);
   }
+
+  /// `Continue with Google`
+  String get continueWithGoogle {
+    return Intl.message(
+      'Continue with Google',
+      name: 'continueWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with Facebook`
+  String get continueWithFacebook {
+    return Intl.message(
+      'Continue with Facebook',
+      name: 'continueWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Email`
+  String get loginWithEmail {
+    return Intl.message(
+      'Login with Email',
+      name: 'loginWithEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register with Email`
+  String get registerWithEmail {
+    return Intl.message(
+      'Register with Email',
+      name: 'registerWithEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Address`
+  String get emailAddress {
+    return Intl.message(
+      'Email Address',
+      name: 'emailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Username`
+  String get username {
+    return Intl.message('Username', name: 'username', desc: '', args: []);
+  }
+
+  /// `Remember me`
+  String get rememberMe {
+    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
+  }
+
+  /// `Don't have an account? `
+  String get dontHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account? ',
+      name: 'dontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register now`
+  String get registerNow {
+    return Intl.message(
+      'Register now',
+      name: 'registerNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account? `
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account? ',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login now`
+  String get loginNow {
+    return Intl.message('Login now', name: 'loginNow', desc: '', args: []);
+  }
+
+  /// `By continuing, you accept our terms of use and acknowledge our privacy policy`
+  String get termsText {
+    return Intl.message(
+      'By continuing, you accept our terms of use and acknowledge our privacy policy',
+      name: 'termsText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please, enter your email address. You will receive a link to create a new password via email.`
+  String get passwordResetInstruction {
+    return Intl.message(
+      'Please, enter your email address. You will receive a link to create a new password via email.',
+      name: 'passwordResetInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email address`
+  String get enterEmailAddressPlaceholder {
+    return Intl.message(
+      'Enter your email address',
+      name: 'enterEmailAddressPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Request`
+  String get sendRequestCodeButton {
+    return Intl.message(
+      'Send Request',
+      name: 'sendRequestCodeButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Verification Code`
+  String get enterVerificationCode {
+    return Intl.message(
+      'Enter Verification Code',
+      name: 'enterVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the 4 digit code that has been sent to `
+  String get verificationCodeInstruction {
+    return Intl.message(
+      'Please enter the 4 digit code that has been sent to ',
+      name: 'verificationCodeInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Didn't receive the code? `
+  String get didNotReceiveCode {
+    return Intl.message(
+      'Didn\'t receive the code? ',
+      name: 'didNotReceiveCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend`
+  String get resend {
+    return Intl.message('Resend', name: 'resend', desc: '', args: []);
+  }
+
+  /// `Verify Code`
+  String get verifyCode {
+    return Intl.message('Verify Code', name: 'verifyCode', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

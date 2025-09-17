@@ -21,5 +21,63 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "لديك حساب بالفعل؟  ",
+    ),
+    "authLanding": MessageLookupByLibrary.simpleMessage(
+      "حيث يتواصل القرّاء، يشاركون وينمون",
+    ),
+    "continueWithFacebook": MessageLookupByLibrary.simpleMessage(
+      "المتابعة بواسطة فيسبوك",
+    ),
+    "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "المتابعة بواسطة جوجل",
+    ),
+    "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
+      "لم تستلم الرمز؟",
+    ),
+    "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "ليس لديك حساب؟  ",
+    ),
+    "emailAddress": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "enterEmailAddressPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "أدخل عنوان بريدك الإلكتروني",
+    ),
+    "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
+      "أدخل رمز التحقق",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "loginNow": MessageLookupByLibrary.simpleMessage("سجّل الدخول الآن "),
+    "loginWithEmail": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول بالبريد الإلكتروني",
+    ),
+    "or": MessageLookupByLibrary.simpleMessage("أو"),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwordResetInstruction": MessageLookupByLibrary.simpleMessage(
+      "من فضلك، أدخل عنوان بريدك الإلكتروني. ستتلقى رابطًا لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني.",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
+    "registerNow": MessageLookupByLibrary.simpleMessage("سجّل الآن "),
+    "registerWithEmail": MessageLookupByLibrary.simpleMessage(
+      "التسجيل بالبريد الإلكتروني",
+    ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "resend": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
+    "sendRequestCodeButton": MessageLookupByLibrary.simpleMessage(
+      "إرسال الطلب",
+    ),
+    "termsText": MessageLookupByLibrary.simpleMessage(
+      "بالاستمرار، فإنك توافق على شروط الاستخدام الخاصة بنا وتقرّ بسياسة الخصوصية.",
+    ),
+    "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+    "verificationCodeInstruction": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل الرمز المكون من 4 أرقام الذي تم إرساله إلى ",
+    ),
+    "verifyCode": MessageLookupByLibrary.simpleMessage("تحقق من الرمز"),
+    "welcomeToCircles": MessageLookupByLibrary.simpleMessage(
+      "مرحبًا بك في سيركلز!",
+    ),
+  };
 }

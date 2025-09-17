@@ -22,12 +22,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account? ",
+    ),
     "authLanding": MessageLookupByLibrary.simpleMessage(
       "Where readers connect, share and grow",
     ),
+    "continueWithFacebook": MessageLookupByLibrary.simpleMessage(
+      "Continue with Facebook",
+    ),
+    "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "Continue with Google",
+    ),
+    "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
+      "Didn\'t receive the code? ",
+    ),
+    "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account? ",
+    ),
+    "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),
+    "enterEmailAddressPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Enter your email address",
+    ),
+    "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
+      "Enter Verification Code",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginNow": MessageLookupByLibrary.simpleMessage("Login now"),
+    "loginWithEmail": MessageLookupByLibrary.simpleMessage("Login with Email"),
     "or": MessageLookupByLibrary.simpleMessage("OR"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordResetInstruction": MessageLookupByLibrary.simpleMessage(
+      "Please, enter your email address. You will receive a link to create a new password via email.",
+    ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "registerNow": MessageLookupByLibrary.simpleMessage("Register now"),
+    "registerWithEmail": MessageLookupByLibrary.simpleMessage(
+      "Register with Email",
+    ),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+    "sendRequestCodeButton": MessageLookupByLibrary.simpleMessage(
+      "Send Request",
+    ),
+    "termsText": MessageLookupByLibrary.simpleMessage(
+      "By continuing, you accept our terms of use and acknowledge our privacy policy",
+    ),
+    "username": MessageLookupByLibrary.simpleMessage("Username"),
+    "verificationCodeInstruction": MessageLookupByLibrary.simpleMessage(
+      "Please enter the 4 digit code that has been sent to ",
+    ),
+    "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
     "welcomeToCircles": MessageLookupByLibrary.simpleMessage(
       "Welcome to Circles!",
     ),
