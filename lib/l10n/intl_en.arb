@@ -20,6 +20,7 @@
   "termsText": "By continuing, you accept our terms of use and acknowledge our privacy policy",
   "passwordResetInstruction": "Please, enter your email address. You will receive a link to create a new password via email.",
   "enterEmailAddressPlaceholder": "Enter your email address",
+  "enterPasswordPlaceholder": "Enter your password",
   "sendRequestCodeButton": "Send Request",
   "enterVerificationCode": "Enter Verification Code",
   "verificationCodeInstruction": "Please enter the 4 digit code that has been sent to ",

@@ -34,7 +34,12 @@ class _LoginFormState extends State<LoginForm> {
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();
             },
-            decoration: InputDecoration(labelText: S.of(context).emailAddress),
+
+            decoration: InputDecoration(
+              labelText: S.of(context).emailAddress,
+              //  hint: Text(S.of(context).enterEmailAddressPlaceholder),
+              hintText: S.of(context).enterEmailAddressPlaceholder,
+            ),
           ),
         ),
 
@@ -51,6 +56,7 @@ class _LoginFormState extends State<LoginForm> {
             obscureText: _isObscured,
             decoration: InputDecoration(
               labelText: S.of(context).password,
+              hintText: S.of(context).enterPasswordPlaceholder,
               suffixIcon: IconButton(
                 icon: Icon(
                   _isObscured ? Icons.visibility_off : Icons.visibility,
