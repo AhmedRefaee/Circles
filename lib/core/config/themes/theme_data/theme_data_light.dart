@@ -48,6 +48,9 @@ ThemeData getlightTheme() {
       labelStyle: AppTextStyles.fourteen.copyWith(
         color: AppColors.lCirclesPrimary.withAlpha(100),
       ),
+      hintStyle: AppTextStyles.fourteen.copyWith(
+        color: AppColors.lCirclesPrimary.withAlpha(100),
+      ),
       fillColor: AppColors.lCirclesGray.withAlpha(50),
       filled: true,
       border: OutlineInputBorder(

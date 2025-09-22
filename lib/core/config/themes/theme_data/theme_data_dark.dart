@@ -46,6 +46,10 @@ ThemeData getdarkTheme() {
       labelStyle: AppTextStyles.fourteen.copyWith(
         color: AppColors.dCirclesSecondary.withAlpha(150),
       ),
+      hintStyle: AppTextStyles.fourteen.copyWith(
+        color: AppColors.dCirclesSecondary.withAlpha(150),
+      ),
+
       fillColor: AppColors.dCirclesGray,
       filled: true,
       border: OutlineInputBorder(
