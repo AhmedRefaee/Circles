@@ -38,7 +38,6 @@ class EmailVerificationScreen extends StatelessWidget {
                         S.of(context).enterVerificationCode,
                         style: AppTextStyles.headline2,
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 21,
                       ),
 
                       RichText(
@@ -70,7 +69,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       SizedBox(height: AppSpacing.verticalXXLarge),
                       Padding(
                         padding: EdgeInsetsGeometry.symmetric(horizontal: 30.w),
-                        child: const VerifyButton(),
+                        child: VerifyButton(email: email),
                       ),
                     ],
                   ),
