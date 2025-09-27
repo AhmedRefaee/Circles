@@ -25,9 +25,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "atLeastEightCharacters": MessageLookupByLibrary.simpleMessage(
+      "Be at least 8 characters",
+    ),
+    "atLeastOneLowercase": MessageLookupByLibrary.simpleMessage(
+      "At least one lowercase letter",
+    ),
+    "atLeastOneNumber": MessageLookupByLibrary.simpleMessage(
+      "At least one number",
+    ),
+    "atLeastOneSpecialSymbol": MessageLookupByLibrary.simpleMessage(
+      "At least one special symbol (e.g. !@#\$%^&_+*)",
+    ),
+    "atLeastOneUppercase": MessageLookupByLibrary.simpleMessage(
+      "At least one uppercase letter",
+    ),
     "authLanding": MessageLookupByLibrary.simpleMessage(
       "Where readers connect, share and grow",
     ),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "continueWithFacebook": MessageLookupByLibrary.simpleMessage(
       "Continue with Facebook",
     ),
@@ -41,8 +57,20 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account? ",
     ),
     "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),
+    "enterConfirmPasswordPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Confirm your new password",
+    ),
     "enterEmailAddressPlaceholder": MessageLookupByLibrary.simpleMessage(
       "Enter your email address",
+    ),
+    "enterNewPasswordPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Enter your new password",
+    ),
+    "enterPasswordPlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Enter your password",
+    ),
+    "enterUsernamePlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Enter your username",
     ),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "Enter Verification Code",
@@ -51,10 +79,42 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginNow": MessageLookupByLibrary.simpleMessage("Login now"),
     "loginWithEmail": MessageLookupByLibrary.simpleMessage("Login with Email"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "or": MessageLookupByLibrary.simpleMessage("OR"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordMinLength": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 8 characters",
+    ),
+    "passwordNeedsLowercase": MessageLookupByLibrary.simpleMessage(
+      "Password must contain at least one lowercase letter",
+    ),
+    "passwordNeedsNumber": MessageLookupByLibrary.simpleMessage(
+      "Password must contain at least one number",
+    ),
+    "passwordNeedsSpecialChar": MessageLookupByLibrary.simpleMessage(
+      "Password must contain at least one special character",
+    ),
+    "passwordNeedsUppercase": MessageLookupByLibrary.simpleMessage(
+      "Password must contain at least one uppercase letter",
+    ),
+    "passwordRequirements": MessageLookupByLibrary.simpleMessage(
+      "Password must meet the following requirements:",
+    ),
     "passwordResetInstruction": MessageLookupByLibrary.simpleMessage(
       "Please, enter your email address. You will receive a link to create a new password via email.",
+    ),
+    "passwordUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Password updated successfully!",
+    ),
+    "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
+    "passwordsMatch": MessageLookupByLibrary.simpleMessage("Passwords match"),
+    "pleaseConfirmPassword": MessageLookupByLibrary.simpleMessage(
+      "Please confirm your password",
+    ),
+    "pleaseEnterPassword": MessageLookupByLibrary.simpleMessage(
+      "Please enter a password",
     ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "registerNow": MessageLookupByLibrary.simpleMessage("Register now"),
@@ -63,8 +123,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
     "sendRequestCodeButton": MessageLookupByLibrary.simpleMessage(
       "Send Request",
+    ),
+    "setNewPasswordSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter your new password for your Email Account",
+    ),
+    "setNewPasswordTitle": MessageLookupByLibrary.simpleMessage(
+      "Set a New Password",
     ),
     "termsText": MessageLookupByLibrary.simpleMessage(
       "By continuing, you accept our terms of use and acknowledge our privacy policy",

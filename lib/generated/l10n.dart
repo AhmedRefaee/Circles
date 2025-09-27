@@ -229,6 +229,26 @@ class S {
     );
   }
 
+  /// `Enter your password`
+  String get enterPasswordPlaceholder {
+    return Intl.message(
+      'Enter your password',
+      name: 'enterPasswordPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your username`
+  String get enterUsernamePlaceholder {
+    return Intl.message(
+      'Enter your username',
+      name: 'enterUsernamePlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Send Request`
   String get sendRequestCodeButton {
     return Intl.message(
@@ -277,6 +297,231 @@ class S {
   /// `Verify Code`
   String get verifyCode {
     return Intl.message('Verify Code', name: 'verifyCode', desc: '', args: []);
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password`
+  String get enterNewPasswordPlaceholder {
+    return Intl.message(
+      'Enter your new password',
+      name: 'enterNewPasswordPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm your new password`
+  String get enterConfirmPasswordPlaceholder {
+    return Intl.message(
+      'Confirm your new password',
+      name: 'enterConfirmPasswordPlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message('Save', name: 'save', desc: '', args: []);
+  }
+
+  /// `Set a New Password`
+  String get setNewPasswordTitle {
+    return Intl.message(
+      'Set a New Password',
+      name: 'setNewPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password for your Email Account`
+  String get setNewPasswordSubtitle {
+    return Intl.message(
+      'Enter your new password for your Email Account',
+      name: 'setNewPasswordSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password updated successfully!`
+  String get passwordUpdatedSuccessfully {
+    return Intl.message(
+      'Password updated successfully!',
+      name: 'passwordUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a password`
+  String get pleaseEnterPassword {
+    return Intl.message(
+      'Please enter a password',
+      name: 'pleaseEnterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters`
+  String get passwordMinLength {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'passwordMinLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one lowercase letter`
+  String get passwordNeedsLowercase {
+    return Intl.message(
+      'Password must contain at least one lowercase letter',
+      name: 'passwordNeedsLowercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one uppercase letter`
+  String get passwordNeedsUppercase {
+    return Intl.message(
+      'Password must contain at least one uppercase letter',
+      name: 'passwordNeedsUppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one number`
+  String get passwordNeedsNumber {
+    return Intl.message(
+      'Password must contain at least one number',
+      name: 'passwordNeedsNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one special character`
+  String get passwordNeedsSpecialChar {
+    return Intl.message(
+      'Password must contain at least one special character',
+      name: 'passwordNeedsSpecialChar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please confirm your password`
+  String get pleaseConfirmPassword {
+    return Intl.message(
+      'Please confirm your password',
+      name: 'pleaseConfirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwordsDoNotMatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordsDoNotMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must meet the following requirements:`
+  String get passwordRequirements {
+    return Intl.message(
+      'Password must meet the following requirements:',
+      name: 'passwordRequirements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least one lowercase letter`
+  String get atLeastOneLowercase {
+    return Intl.message(
+      'At least one lowercase letter',
+      name: 'atLeastOneLowercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least one uppercase letter`
+  String get atLeastOneUppercase {
+    return Intl.message(
+      'At least one uppercase letter',
+      name: 'atLeastOneUppercase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least one number`
+  String get atLeastOneNumber {
+    return Intl.message(
+      'At least one number',
+      name: 'atLeastOneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Be at least 8 characters`
+  String get atLeastEightCharacters {
+    return Intl.message(
+      'Be at least 8 characters',
+      name: 'atLeastEightCharacters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least one special symbol (e.g. !@#$%^&_+*)`
+  String get atLeastOneSpecialSymbol {
+    return Intl.message(
+      'At least one special symbol (e.g. !@#\$%^&_+*)',
+      name: 'atLeastOneSpecialSymbol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords match`
+  String get passwordsMatch {
+    return Intl.message(
+      'Passwords match',
+      name: 'passwordsMatch',
+      desc: '',
+      args: [],
+    );
   }
 }
 
