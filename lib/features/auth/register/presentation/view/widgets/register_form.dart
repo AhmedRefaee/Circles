@@ -36,7 +36,10 @@ class _RegisterFormState extends State<RegisterForm> {
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();
             },
-            decoration: InputDecoration(labelText: S.of(context).emailAddress),
+            decoration: InputDecoration(
+              labelText: S.of(context).emailAddress,
+              hintText: S.of(context).enterEmailAddressPlaceholder,
+            ),
           ),
         ),
 
@@ -50,7 +53,10 @@ class _RegisterFormState extends State<RegisterForm> {
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();
             },
-            decoration: InputDecoration(labelText: S.of(context).username),
+            decoration: InputDecoration(
+              labelText: S.of(context).username,
+              hintText: S.of(context).enterUsernamePlaceholder,
+            ),
           ),
         ),
 
@@ -67,6 +73,7 @@ class _RegisterFormState extends State<RegisterForm> {
             obscureText: _isObscured,
             decoration: InputDecoration(
               labelText: S.of(context).password,
+              hintText: S.of(context).enterPasswordPlaceholder,
               suffixIcon: IconButton(
                 icon: Icon(
                   _isObscured ? Icons.visibility_off : Icons.visibility,
