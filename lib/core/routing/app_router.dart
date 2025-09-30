@@ -6,16 +6,14 @@ import 'package:circles/features/auth/new_password/presentation/views/new_passwo
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
-    // THIS arguments is to be passed in any screen like this (argument as class name )
-
-    final arguments = settings.arguments;
-
     switch (settings.name) {
       case Routes.authLanding:
         return MaterialPageRoute(builder: (context) => AuthLanding());
-      case Routes.forgotPasswordPage:
-        return MaterialPageRoute(builder: (context) => ForgotPasswordPage());
-
+      case Routes.newPasswordPage:
+        return MaterialPageRoute(
+          builder: (context) =>
+              NewPasswordPage(email: settings.arguments as String),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(body: Center(child: Text('No route found'))),
