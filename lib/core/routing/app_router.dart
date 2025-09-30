@@ -1,3 +1,4 @@
+import 'package:circles/features/auth/forgot_password/presentation/view/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:circles/core/routing/routes.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view/auth_landing.dart';
@@ -5,14 +6,16 @@ import 'package:circles/features/auth/new_password/presentation/views/new_passwo
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
+    // THIS arguments is to be passed in any screen like this (argument as class name )
+
+    final arguments = settings.arguments;
+
     switch (settings.name) {
       case Routes.authLanding:
         return MaterialPageRoute(builder: (context) => AuthLanding());
-      case Routes.newPasswordPage:
-        return MaterialPageRoute(
-          builder: (context) =>
-              NewPasswordPage(email: settings.arguments as String),
-        );
+      case Routes.forgotPasswordPage:
+        return MaterialPageRoute(builder: (context) => ForgotPasswordPage());
+
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(body: Center(child: Text('No route found'))),
