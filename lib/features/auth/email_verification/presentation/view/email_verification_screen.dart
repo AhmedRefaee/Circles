@@ -1,6 +1,6 @@
 import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/core/utils/elements/back_arrow_button.dart';
+import 'package:circles/core/helper/widgets/back_arrow_button.dart';
 import 'package:circles/features/auth/email_verification/presentation/view/widgets/email_verification_form.dart';
 import 'package:circles/features/auth/email_verification/presentation/view/widgets/resend_button.dart';
 import 'package:circles/features/auth/email_verification/presentation/view/widgets/verify_button.dart';

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:circles/core/consts/random_consts.dart';
+import 'package:circles/core/helper/consts/random_consts.dart';
 import 'package:meta/meta.dart';
 
 part 'email_verification_state.dart';

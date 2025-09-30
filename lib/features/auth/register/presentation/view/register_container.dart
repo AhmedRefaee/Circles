@@ -1,6 +1,6 @@
 import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/core/utils/elements/themed_expansion_tile.dart';
+import 'package:circles/core/helper/widgets/themed_expansion_tile.dart';
 import 'package:circles/features/auth/register/presentation/view/widgets/rather_login_button.dart';
 import 'package:circles/features/auth/register/presentation/view/widgets/register_button.dart';
 import 'package:circles/features/auth/register/presentation/view/widgets/register_form.dart';

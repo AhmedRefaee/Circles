@@ -1,7 +1,7 @@
 import 'package:circles/core/config/themes/app_colors.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
 import 'package:circles/core/config/themes/theme_extensions/theme_extenstions.dart';
-import 'package:circles/core/consts/random_consts.dart';
+import 'package:circles/core/helper/consts/random_consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';

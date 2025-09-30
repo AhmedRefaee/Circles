@@ -1,7 +1,7 @@
 import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/core/consts/app_assets.dart';
-import 'package:circles/core/utils/testing/test_file.dart';
+import 'package:circles/core/helper/consts/app_assets.dart';
+import 'package:circles/core/helper/testing/test_file.dart';
 import 'package:circles/features/auth/social_login/data/service/google_signin_api.dart';
 import 'package:circles/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';

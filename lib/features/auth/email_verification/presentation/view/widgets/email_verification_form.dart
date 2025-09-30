@@ -1,4 +1,4 @@
-import 'package:circles/core/consts/random_consts.dart';
+import 'package:circles/core/helper/consts/random_consts.dart';
 import 'package:circles/features/auth/email_verification/presentation/view/widgets/email_verification_text_field.dart';
 import 'package:circles/features/auth/email_verification/presentation/view_model/email_verification_cubit/email_verification_cubit.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,7 @@
 import 'package:circles/core/config/themes/app_icons.dart';
 import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/core/consts/app_assets.dart';
+import 'package:circles/core/helper/consts/app_assets.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view/widgets/or_divider.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view/widgets/register_or_login.dart';
 import 'package:circles/features/auth/auth_landing/presentation/view_model/auth/auth_cubit.dart';

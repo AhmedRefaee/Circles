@@ -1,6 +1,6 @@
 import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/core/utils/elements/back_arrow_button.dart';
+import 'package:circles/core/helper/widgets/back_arrow_button.dart';
 import 'package:circles/features/auth/forgot_password/presentation/view/widgets/request_code_button.dart';
 import 'package:circles/generated/l10n.dart';
 import 'package:flutter/material.dart';

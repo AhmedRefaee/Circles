@@ -1,5 +1,5 @@
 import 'package:circles/core/config/themes/app_spacing.dart';
-import 'package:circles/core/utils/elements/themed_expansion_tile.dart';
+import 'package:circles/core/helper/widgets/themed_expansion_tile.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/forgot_password_button.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/login_button.dart';
 import 'package:circles/features/auth/login/presentation/view/widgets/login_form.dart';

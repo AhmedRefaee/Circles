@@ -1,6 +1,6 @@
 import 'package:circles/core/config/themes/app_spacing.dart';
 import 'package:circles/core/config/themes/app_text_styles.dart';
-import 'package:circles/core/utils/elements/back_arrow_button.dart';
+import 'package:circles/core/helper/widgets/back_arrow_button.dart';
 import 'package:circles/features/auth/new_password/presentation/view_model/new_password/new_password_form_cubit.dart';
 import 'package:circles/features/auth/new_password/presentation/view_model/save_new_password/save_new_password_cubit.dart';
 import 'package:circles/features/auth/new_password/presentation/views/widgets/new_password_form.dart';
@@ -76,6 +76,12 @@ class _NewPasswordView extends StatefulWidget {
 }
 
 class _NewPasswordViewState extends State<_NewPasswordView> {
+  // Step 2: Extract spacing constants
+  static const double _titleBottomSpacing = 0; // No spacing after title
+  static final double _formTopSpacing = AppSpacing.verticalLarge;
+  static final double _conditionsTopSpacing = AppSpacing.verticalMedium;
+  static final double _buttonTopSpacing = AppSpacing.verticalLarge;
+
   @override
   void initState() {
     super.initState();
@@ -99,126 +105,170 @@ class _NewPasswordViewState extends State<_NewPasswordView> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = S.of(context);
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(leading: BackArrowButton()),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppSpacing.screenHorizontal,
-              vertical: AppSpacing.screenVertical,
-            ),
-            child: SizedBox(
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    l10n.setNewPasswordTitle,
-                    style: AppTextStyles.headline2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  RichText(
-                    textAlign: TextAlign.start,
-                    text: TextSpan(
-                      style: AppTextStyles.fourteen.copyWith(
-                        fontWeight: FontWeight.w400,
-                        color: AppTextStyles.fourteen.color,
-                      ),
-                      children: [
-                        TextSpan(text: l10n.setNewPasswordSubtitle + ' '),
-                        TextSpan(
-                          text: widget.email,
-                          style: AppTextStyles.fourteen.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: AppTextStyles.fourteen.color,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: AppSpacing.verticalLarge),
-                  NewPassForm(
-                    formKey: widget.formKey,
-                    passwordController: widget.passwordController,
-                    confirmPasswordController: widget.confirmPasswordController,
-                    passwordFocusNode: widget.passwordFocusNode,
-                    confirmPasswordFocusNode: widget.confirmPasswordFocusNode,
-                  ),
-                  SizedBox(height: AppSpacing.verticalMedium),
-                  const PasswordConditions(),
-                  SizedBox(height: AppSpacing.verticalLarge),
-                  BlocListener<SaveNewPasswordCubit, SaveNewPasswordState>(
-                    listener: (context, state) {
-                      if (state is SaveNewPasswordError) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(state.message),
-                            backgroundColor: Colors.red,
-                          ),
-                        );
-                      } else if (state is SaveNewPasswordSaved) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(l10n.passwordUpdatedSuccessfully),
-                            backgroundColor: Colors.green,
-                          ),
-                        );
-                        // TODO: Navigate to login or home screen
-                        // Navigator.of(context).pushReplacementNamed('/login');
-                      }
-                    },
-                    child:
-                        BlocBuilder<NewPasswordFormCubit, NewPasswordFormState>(
-                          builder: (context, formState) {
-                            return BlocBuilder<
-                              SaveNewPasswordCubit,
-                              SaveNewPasswordState
-                            >(
-                              builder: (context, saveState) {
-                                final isLoading =
-                                    saveState is SaveNewPasswordSaving;
-                                final saveCubit = context
-                                    .read<SaveNewPasswordCubit>();
+      appBar: _buildAppBar(),
+      body: _buildBody(),
+    );
+  }
 
-                                // Get form validation state
-                                final isFormValid =
-                                    formState is NewPasswordFormValidating &&
-                                    formState.isFormValid;
-                                final isEnabled =
-                                    saveCubit.canExecuteSave() && isFormValid;
+  // Step 3-5: Extract helper methods
+  PreferredSizeWidget _buildAppBar() {
+    return AppBar(leading: BackArrowButton());
+  }
 
-                                return SaveNewPasswordButton(
-                                  onPressed: () {
-                                    final isValid =
-                                        widget.formKey.currentState
-                                            ?.validate() ??
-                                        false;
-                                    if (isValid) {
-                                      saveCubit.executePasswordSave(
-                                        isValid,
-                                        widget.passwordController.text,
-                                        widget.email,
-                                      );
-                                    }
-                                  },
-                                  isLoading: isLoading,
-                                  isEnabled: isEnabled,
-                                );
-                              },
-                            );
-                          },
-                        ),
-                  ),
-                ],
-              ),
+  Widget _buildBody() {
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSpacing.screenHorizontal,
+            vertical: AppSpacing.screenVertical,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildHeader(),
+                SizedBox(height: _formTopSpacing),
+                _buildForm(),
+                SizedBox(height: _conditionsTopSpacing),
+                _buildPasswordConditions(),
+                SizedBox(height: _buttonTopSpacing),
+                _buildSaveButton(),
+              ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildHeader() {
+    final l10n = S.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [_buildTitle(l10n), _buildSubtitle(l10n)],
+    );
+  }
+
+  Widget _buildTitle(S l10n) {
+    return Text(
+      l10n.setNewPasswordTitle,
+      style: AppTextStyles.headline2,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+
+  Widget _buildSubtitle(S l10n) {
+    return RichText(
+      textAlign: TextAlign.start,
+      text: TextSpan(
+        style: AppTextStyles.fourteen.copyWith(
+          fontWeight: FontWeight.w400,
+          color: Theme.of(context).textTheme.bodyMedium?.color,
+        ),
+        children: [
+          TextSpan(text: l10n.setNewPasswordSubtitle + ' '),
+          TextSpan(
+            text: widget.email,
+            style: AppTextStyles.fourteen.copyWith(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).textTheme.bodyMedium?.color,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildForm() {
+    return NewPassForm(
+      formKey: widget.formKey,
+      passwordController: widget.passwordController,
+      confirmPasswordController: widget.confirmPasswordController,
+      passwordFocusNode: widget.passwordFocusNode,
+      confirmPasswordFocusNode: widget.confirmPasswordFocusNode,
+    );
+  }
+
+  Widget _buildPasswordConditions() {
+    return const PasswordConditions();
+  }
+
+  Widget _buildSaveButton() {
+    return BlocListener<SaveNewPasswordCubit, SaveNewPasswordState>(
+      listener: _onSavePasswordStateChange,
+      child: _buildSaveButtonBuilder(),
+    );
+  }
+
+  Widget _buildSaveButtonBuilder() {
+    return BlocBuilder<NewPasswordFormCubit, NewPasswordFormState>(
+      builder: (context, formState) {
+        return BlocBuilder<SaveNewPasswordCubit, SaveNewPasswordState>(
+          builder: (context, saveState) =>
+              _buildSaveButtonWithStates(formState, saveState),
+        );
+      },
+    );
+  }
+
+  Widget _buildSaveButtonWithStates(
+    NewPasswordFormState formState,
+    SaveNewPasswordState saveState,
+  ) {
+    final isLoading = saveState is SaveNewPasswordSaving;
+    final saveCubit = context.read<SaveNewPasswordCubit>();
+    final isFormValid =
+        formState is NewPasswordFormValidating && formState.isFormValid;
+    final isEnabled = saveCubit.canExecuteSave() && isFormValid;
+
+    return SaveNewPasswordButton(
+      onPressed: () => _handleSavePassword(saveCubit),
+      isLoading: isLoading,
+      isEnabled: isEnabled,
+    );
+  }
+
+  // Helper methods for business logic
+  void _onSavePasswordStateChange(
+    BuildContext context,
+    SaveNewPasswordState state,
+  ) {
+    final l10n = S.of(context);
+
+    if (state is SaveNewPasswordError) {
+      _showErrorSnackBar(context, state.message);
+    } else if (state is SaveNewPasswordSaved) {
+      _showSuccessSnackBar(context, l10n.passwordUpdatedSuccessfully);
+      // TODO: Navigate to login or home screen
+      // Navigator.of(context).pushReplacementNamed('/login');
+    }
+  }
+
+  void _handleSavePassword(SaveNewPasswordCubit saveCubit) {
+    final isValid = widget.formKey.currentState?.validate() ?? false;
+    if (isValid) {
+      saveCubit.executePasswordSave(
+        isValid,
+        widget.passwordController.text,
+        widget.email,
+      );
+    }
+  }
+
+  void _showErrorSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message), backgroundColor: Colors.red),
+    );
+  }
+
+  void _showSuccessSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message), backgroundColor: Colors.green),
     );
   }
 }
